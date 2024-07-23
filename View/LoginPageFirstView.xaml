@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUITutorial.View.LoginPageFirstView"
+             Title="LoginPageFirstView"
+             NavigationPage.HasNavigationBar="False" 
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:tt="clr-namespace:MAUITutorial.ViewModel" BackgroundColor="#437d28">
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#437d28" />
+    </ContentPage.Behaviors>
+    <ContentPage.BindingContext>
+        <tt:MainPageViewModel x:Name="VM"/>
+    </ContentPage.BindingContext>
+    <StackLayout >
+       
+        <StackLayout VerticalOptions="Center" Spacing="40" Grid.Row="1" Margin="3,200,3,0"  >
+            <Image Source="starbucks1" HeightRequest="70" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="StarBucks"   TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" 
+        FontSize="40"/>
+            <Label Text="KINDNESS TO NATURE KINDNESS TO YOU OUR VEGAN BEAUTY PROMISE" TextColor="White"
+                   HorizontalTextAlignment="Center" FontSize="18"/>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="20" HeightRequest="60" Margin="0,30,0,0">
+                <Frame BorderColor="White" BackgroundColor="#437d28" Grid.Column="0" HorizontalOptions="CenterAndExpand" WidthRequest="150" HasShadow="False" Padding="0">
+                    <Label Text="Log in" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"
+        FontAttributes="Bold" FontSize="20">
+
+                        
+                    </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeLoginPage}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame  Grid.Column="1" HorizontalOptions="CenterAndExpand" WidthRequest="150" HasShadow="False" Padding="0" BorderColor="Transparent">
+                    <Label Text="Sign up" TextColor="#437d28" VerticalOptions="Center" HorizontalOptions="Center"
+                           FontAttributes="Bold" FontSize="20">
+
+                    </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeSigneUpPage}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+            <!--<Grid ColumnDefinitions="*,Auto,*">
+                <BoxView Background="White" HeightRequest="1" BackgroundColor="White" Grid.Column="0" Margin="5,0"/>
+                <Label Grid.Column="1" Text="Forgot Password" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"
+                  FontAttributes="None" FontSize="16"/>
+                <BoxView  HeightRequest="1" Background="White" Grid.Column="2"  Margin="5,0"/>
+            </Grid>-->
+            <!--<Frame Padding="0" CornerRadius="30" BackgroundColor="White" Margin="50,0" BorderColor="Black" HasShadow="True">
+                <Entry Placeholder="Email" Margin="10,1" TextColor="Black" WidthRequest="250"/>
+            </Frame>
+            <Frame Padding="0" CornerRadius="30" BackgroundColor="White" Margin="50,0"  BorderColor="Black" HasShadow="True">
+                <Entry Placeholder="Password" Margin="10,1" TextColor="Black" WidthRequest="250" Keyboard="Numeric" MaxLength="10"/>
+
+            </Frame>
+            <Label Text="Forgot password?" HorizontalOptions="Center" FontSize="13" TextColor="#3797ef" FontAttributes="Bold"
+         Margin="180,0,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ForgotCmd}"/>
+                </Label.GestureRecognizers>
+
+            </Label>
+            <Button Text="Log in" FontAttributes="Bold" BackgroundColor="blue" CornerRadius="30" Margin="0,25" 
+          WidthRequest="200" />-->
+
+        </StackLayout>
+       
+
+    </StackLayout>
+</ContentPage>
+
+
+<!--<Button Text="Log in" BackgroundColor="Blue" 
+                    TextColor="White" WidthRequest="200"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+     <StackLayout.Background>
+
+     <LinearGradientBrush EndPoint="0,1">
+         <GradientStop Color="LightSkyBlue"
+                   Offset="0.1" />
+         <GradientStop Color="Blue"
+                   Offset="1.0" />
+     </LinearGradientBrush>
+
+ </StackLayout.Background>-->
+
+<!--<Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Logincmd1}"/>
+                </Label.GestureRecognizers>-->

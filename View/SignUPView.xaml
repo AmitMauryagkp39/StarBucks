@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUITutorial.View.SignUPView"
+             Title="SignUPView"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:MAUITutorial.ViewModel">
+    <ContentPage.BindingContext>
+        <vm:SignUpThirdPageViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <Grid  Margin="13,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+
+        <HorizontalStackLayout Grid.Row="0" >
+            <Image Source="lessthan.png" HorizontalOptions="Start" HeightRequest="25" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer    Command="{Binding  ChangeBackPage2}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Back" TextColor="#437d28" HorizontalOptions="Start"  FontAttributes="Bold" VerticalOptions="Center" FontSize="17" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer    Command="{Binding  ChangeBackPage2}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </HorizontalStackLayout>
+
+
+
+        <StackLayout Grid.Row="1" Spacing="20" Margin="0,30">
+            <Label Text="Get started" HorizontalOptions="Center" FontSize="30" TextColor="#437d28" FontAttributes="Bold" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Frame Grid.Row ="1" Padding="0" BorderColor="#437d28" CornerRadius="15">
+                    <Entry Text="{Binding Email}" Placeholder="Enter your email" Margin="15,0"/>
+                </Frame>
+                <Label Grid.Row="0" Text="Email address" HorizontalOptions="Start" BackgroundColor="White" Margin="15,0" TranslationY="10" TextColor="#437d28" Padding="1"/>
+            </Grid>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row ="1" Padding="0" BorderColor="#437d28" CornerRadius="15">
+                    <StackLayout Orientation="Horizontal">
+                        <Entry Text="{Binding Password}" Placeholder="Enter your password" IsPassword="{Binding IsPasswordTF2}" Margin="15,0" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="{Binding OpenHidePassword2}"  HeightRequest="25" HorizontalOptions="End" Margin="5,0,10,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding  OpenHidePasswordCmd2}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                    </StackLayout>
+                </Frame>
+                <Label Grid.Row="0" Text="Password" HorizontalOptions="Start" BackgroundColor="White" Margin="15,0" TranslationY="10" TextColor="#437d28" Padding="1"/>
+            </Grid>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox Color="#437d28" Margin="17,0,0,0" IsChecked="{Binding IsAcceptAgreement}"/>
+               
+
+                <Label Text="I agree to the proccesing of " TextColor="#437d28" VerticalOptions="Center"/>
+                <Label  Text="Personal data" TextColor="#437d28" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" />
+            </StackLayout>
+
+            <Button Text="Sign up" BackgroundColor="#437d28" HeightRequest="60" CornerRadius="18" Command="{Binding SignupCmd}"/>
+
+
+            <StackLayout Orientation="Horizontal">
+                <BoxView HeightRequest="1" Color="#437d28" HorizontalOptions="FillAndExpand" />
+                <Label Text="Sign up" TextColor="#437d28" Padding="2"/>
+                <BoxView HeightRequest="1" Color="#437d28" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="50">
+                <Image Source="facebook"  HeightRequest="35"/>
+                <Image Source="googleicon"  HeightRequest="35"/>
+                <Image Source="appleicon"  HeightRequest="35"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="3">
+                <Label HorizontalTextAlignment="Center" TextColor="#437d28" />
+                <Label Text="If you have account?" TextColor="#437d28"/>
+                <Label Text="Login" TextColor="#437d28" FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoginCmd}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <!--<Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="If you have account? " />
+                        <Span Text="Login" FontAttributes="Bold">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginCmd}"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>-->
+
+        </StackLayout>
+
+
+
+    </Grid>
+</ContentPage>
